@@ -1,0 +1,23 @@
+#멘하탄 거리 행렬
+import numpy as np
+
+data = np.array([
+    [0, 2, 0],
+    [0, 3, 1],
+    [1, 2, 0],
+    [0, 2, 0],
+    [1, 3, 2],
+    [1, 5, 1]
+])
+
+individuals = data.shape[0]
+distance_matrix = np.zeros((individuals, individuals))
+
+for i in range(individuals):
+    for j in range(i, individuals):
+        distance = np.abs(data[i] - data[j]).sum()
+        distance_matrix[i, j] = distance
+        distance_matrix[j, i] = distance
+
+print("Manhattan Distance Matrix:")
+print(distance_matrix)
